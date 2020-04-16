@@ -24,5 +24,11 @@ pipeline {
             sh 'mvn deploy'
           }
         }
+
+        stage('Email') {
+              steps {
+                emailext(subject: 'Build Passed!', body: 'Build Passed!', from: 'davidberard2@gmail.com', to: 'davidberard2@gmail.com')
+              }
+            }
     }
 }
