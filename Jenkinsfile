@@ -7,29 +7,28 @@ pipeline {
           }
         }
 
-        stage('Email') {
-                      steps {
-                        emailext(subject: 'Build Passed!', body: 'Build Passed!', from: 'davidberard2@gmail.com', to: 'davidberard2@gmail.com')
-                      }
-                    }
-
         stage('Test') {
           steps {
-            sh 'mvn test'
+            echo 'Test'
           }
         }
 
         stage('Package') {
           steps {
-            sh 'mvn package'
+            echo 'Package'
           }
         }
 
         stage('Deploy') {
           steps {
-            sh 'mvn deploy'
+            echo 'Deploy'
           }
         }
-       
+
+        stage('Email') {
+                      steps {
+                        emailext(subject: 'All Passed!', body: 'All Passed!', from: 'davidberard2@gmail.com', to: 'davidberard2@gmail.com')
+                      }
+                    }
     }
 }
