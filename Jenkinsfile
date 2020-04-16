@@ -3,7 +3,9 @@ pipeline {
     stages {
         stage('Build') {
           steps {
-            sh './mvnw package'
+            mvn clean
+            mvn compile
+            mvn build
           }
         }
 
