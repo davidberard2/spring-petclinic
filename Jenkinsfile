@@ -24,11 +24,20 @@ pipeline {
             echo 'Deploy'
           }
         }
+    }
 
-        stage('Email') {
-                      steps {
-                        emailext(subject: 'All Passed!', body: 'All Passed!', from: 'tryh814@gmail.com', to: 'davidberard2@gmail.com')
-                      }
-                    }
+    post {
+
+        success {
+            mail to: 'davidberard2@gmail.com',
+                 subject: "Sucess Pipeline",
+                 body: "Something is good"
+        }
+
+        failure {
+            mail to: 'davidberard2@gmail.com',
+                 subject: "Failed Pipeline",
+                 body: "Something is wrong"
+        }
     }
 }
