@@ -27,7 +27,7 @@ pipeline {
 
         stage('Email') {
                       steps {
-                        emailext(subject: 'All Passed!', body: 'All Passed!', from: 'davidberard2@gmail.com', to: 'davidberard2@gmail.com')
+                        emailext(subject: 'All Passed!', body: 'All Passed!', from: 'tryh814@gmail.com', to: 'davidberard2@gmail.com')
                       }
                     }
     }
